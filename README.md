@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/s-rx3t9_)
 # Chess Game 
 
@@ -40,3 +41,7 @@ The game was created by Checkmate team.
 ## Grantt Chart
 the tasks of the prject are clarified here !
 https://sharing.clickup.com/9009137056/l/h/8cft1d0-300/6ff7353fe7cab00
+=======
+# CheckMate
+Java OOP Chess game project.
+>>>>>>> fc7f455bd886b6edd131e0199b4ce536a4ba20bc
