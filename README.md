@@ -13,10 +13,6 @@ The Login Screen allows players to enter their names and choose a theme for the 
 The chessboard shows the ongoing game, highlighting possible moves and indicating captured pieces.
 ![Chess Gameplay](https://github.com/user-attachments/assets/0ecf3834-e9da-4303-b3cf-6fd690b9257e)
 
-### Example of Initial Board Setup
-The initial board setup highlights all chess pieces in their starting positions.
-![Initial Board](https://github.com/user-attachments/assets/49207b32-08fb-491d-af0e-6ccd9500a221)
-
 ---
 
 
