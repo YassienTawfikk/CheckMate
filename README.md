@@ -7,12 +7,12 @@ This project is an implementation of a chess game using **Java Swing**. It featu
 ### Login Screen
 
 The Login Screen allows players to enter their names and choose a theme for the game.
-![Login Screen](https://github.com/user-attachments/assets/ea827ba3-582d-44e7-85d6-fa89a9f4b893)
+![Login Screen](https://github.com/user-attachments/assets/55fc6d9d-4a18-459a-a365-7cdab02b1f34)
 
 ### Chessboard During Gameplay
 
 The chessboard shows the ongoing game, highlighting possible moves and indicating captured pieces.
-![Chess Gameplay](https://github.com/user-attachments/assets/0ecf3834-e9da-4303-b3cf-6fd690b9257e)
+![Chess Gameplay](https://github.com/user-attachments/assets/d344a02d-44f3-41e6-a7a7-20fba24bd8f3)
 
 ---
 
@@ -61,3 +61,4 @@ The project follows a standard Maven-like directory layout:
    cd CheckMate
    ./run.sh
    ```
+
