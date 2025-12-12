@@ -3,6 +3,9 @@
  * This class represents the base Piece in the chess game, defining its attributes and behavior.
  */
 
+package com.checkmate.pieces;
+
+import com.checkmate.core.Board;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -34,7 +37,14 @@ public class Piece {
     // Load sprite sheet for the pieces
     {
         try {
-            sheet = ImageIO.read(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("pieces1.png")));
+            java.net.URL url = getClass().getResource("/images/Pieces/pieces.png");
+            if (url == null) {
+                System.err.println("Error: Could not find resource '/images/Pieces/pieces.png'");
+                System.err.println("Classpath: " + System.getProperty("java.class.path"));
+            } else {
+                System.out.println("Found resource at: " + url);
+                sheet = ImageIO.read(url);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

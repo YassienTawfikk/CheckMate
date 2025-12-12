@@ -1,3 +1,7 @@
+package com.checkmate.core;
+
+import com.checkmate.ui.GameFrame;
+import com.checkmate.ui.LoginFrame;
 import javax.swing.*;
 import java.io.File;
 

@@ -3,7 +3,9 @@ The Knight class represents a Knight piece in a game of chess.
 It extends the Piece class and inherits its properties and methods.
 */
 
+package com.checkmate.pieces;
 
+import com.checkmate.core.Board;
 import java.awt.image.BufferedImage;
 
 public class Knight extends Piece {
@@ -25,12 +27,13 @@ public class Knight extends Piece {
         this.name = "Knight";
         this.isFirstMove = true;
 
-        this.sprite = sheet.getSubimage(pieceWidth * 3, isWhite ? 0 : pieceHeight, pieceWidth, pieceHeight).getScaledInstance(board.tileSize, board.tileSize, BufferedImage.SCALE_SMOOTH);
+        this.sprite = sheet.getSubimage(pieceWidth * 3, isWhite ? 0 : pieceHeight, pieceWidth, pieceHeight)
+                .getScaledInstance(board.tileSize, board.tileSize, BufferedImage.SCALE_SMOOTH);
     }
 
-    //Set the valid move of the Knight
+    // Set the valid move of the Knight
     public boolean isValidMovement(int column, int row) {
-        //Set steps of movement for the Knight
+        // Set steps of movement for the Knight
         columnMove = Math.abs(column - this.column);
         rowMove = Math.abs(row - this.row);
 

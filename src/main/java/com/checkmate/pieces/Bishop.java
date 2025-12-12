@@ -3,8 +3,9 @@ The Bishop class represents a pawn piece in a game of chess.
 It extends the Piece class and inherits its properties and methods.
 */
 
+package com.checkmate.pieces;
 
-
+import com.checkmate.core.Board;
 import java.awt.image.BufferedImage;
 
 /**
@@ -28,29 +29,33 @@ public class Bishop extends Piece {
         this.yPos = row * board.tileSize;
         this.isWhite = isWhite;
         this.name = "Bishop";
-        this.isFirstMove=true;
+        this.isFirstMove = true;
 
-        // Get the Bishop's sprite from the sprite sheet and scale it to the appropriate size
-        this.sprite = sheet.getSubimage(pieceWidth * 2, isWhite ? 0 : pieceHeight, pieceWidth, pieceHeight).getScaledInstance(board.tileSize - 1, board.tileSize - 1, BufferedImage.SCALE_SMOOTH);
+        // Get the Bishop's sprite from the sprite sheet and scale it to the appropriate
+        // size
+        this.sprite = sheet.getSubimage(pieceWidth * 2, isWhite ? 0 : pieceHeight, pieceWidth, pieceHeight)
+                .getScaledInstance(board.tileSize - 1, board.tileSize - 1, BufferedImage.SCALE_SMOOTH);
     }
 
-    //Set valid moves of Bishop
+    // Set valid moves of Bishop
     public boolean isValidMovement(int column, int row) {
 
-        //Set steps of movement for the Bishop
+        // Set steps of movement for the Bishop
         columnMove = Math.abs(column - this.column);
         rowMove = Math.abs(row - this.row);
 
-        //Check clearance of the path for Bishop to change it's color
+        // Check clearance of the path for Bishop to change it's color
         boolean rightClear = board.getPiece(this.column + 1, this.row) == null;
         boolean leftClear = board.getPiece(this.column - 1, this.row) == null;
 
         if (rightClear && leftClear) {
             return (columnMove <= 3 && rowMove <= 3 && columnMove == rowMove) || (columnMove == 1 && rowMove == 0);
         } else if (rightClear) {
-            return (columnMove <= 3 && rowMove <= 3 && columnMove == rowMove) || (column - this.column == 1 && rowMove == 0);
+            return (columnMove <= 3 && rowMove <= 3 && columnMove == rowMove)
+                    || (column - this.column == 1 && rowMove == 0);
         } else if (leftClear) {
-            return (columnMove <= 3 && rowMove <= 3 && columnMove == rowMove) || (column - this.column == -1 && rowMove == 0);
+            return (columnMove <= 3 && rowMove <= 3 && columnMove == rowMove)
+                    || (column - this.column == -1 && rowMove == 0);
         } else {
             return (columnMove <= 3 && rowMove <= 3 && columnMove == rowMove);
         }

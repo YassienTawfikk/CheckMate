@@ -3,11 +3,12 @@ The Rook class represents a pawn piece in a game of chess.
 It extends the Piece class and inherits its properties and methods.
 */
 
+package com.checkmate.pieces;
 
+import com.checkmate.core.Board;
 import java.awt.image.BufferedImage;
 
 public class Rook extends Piece {
-
 
     /**
      * Constructor for the Rook class
@@ -27,28 +28,29 @@ public class Rook extends Piece {
         this.name = "Rook";
         this.isFirstMove = true;
 
-        this.sprite = sheet.getSubimage(pieceWidth * 4, isWhite ? 0 : pieceHeight, pieceWidth, pieceHeight).getScaledInstance(board.tileSize - 1, board.tileSize - 1, BufferedImage.SCALE_SMOOTH);
+        this.sprite = sheet.getSubimage(pieceWidth * 4, isWhite ? 0 : pieceHeight, pieceWidth, pieceHeight)
+                .getScaledInstance(board.tileSize - 1, board.tileSize - 1, BufferedImage.SCALE_SMOOTH);
 
     }
 
-    //Set valid moves of Rook
+    // Set valid moves of Rook
     public boolean isValidMovement(int column, int row) {
 
-        //Set steps of movement for the Rook
+        // Set steps of movement for the Rook
         columnMove = column - this.column;
         rowMove = row - this.row;
 
         return columnMove == 0 || rowMove == 0;
     }
 
-    //Set boundaries for hitting piece because Rook can't bypass any piece
+    // Set boundaries for hitting piece because Rook can't bypass any piece
     public boolean moveHitsPiece(int column, int row) {
 
-        //Set steps of movement for the Rook
+        // Set steps of movement for the Rook
         columnMove = column - this.column;
         rowMove = row - this.row;
 
-        //Moving Left
+        // Moving Left
         if (columnMove < 0) {
             for (int c = this.column - 1; c > column; c--) {
                 if (board.getPiece(c, this.row) != null) {
@@ -57,7 +59,7 @@ public class Rook extends Piece {
             }
         }
 
-        //Moving Right
+        // Moving Right
         if (columnMove > 0) {
             for (int c = this.column + 1; c < column; c++) {
                 if (board.getPiece(c, this.row) != null) {
@@ -66,7 +68,7 @@ public class Rook extends Piece {
             }
         }
 
-        //Moving Up
+        // Moving Up
         if (rowMove < 0) {
             for (int r = this.row - 1; r > row; r--) {
                 if (board.getPiece(this.column, r) != null) {
@@ -75,7 +77,7 @@ public class Rook extends Piece {
             }
         }
 
-        //Moving Down
+        // Moving Down
         if (rowMove > 0) {
             for (int r = this.row + 1; r < row; r++) {
                 if (board.getPiece(this.column, r) != null) {

@@ -1,4 +1,8 @@
+package com.checkmate.core;
 
+import com.checkmate.pieces.*;
+import com.checkmate.ui.GameFrame;
+import com.checkmate.ui.GameOver;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -59,6 +63,26 @@ public class Input extends MouseAdapter {
                 if (board.isValidMove(move) && board.validTurn()) {
                     Move.counter++; // counter increment to switch turns
                     board.makeMove(move);
+
+                    // Update UI Turn Label
+                    if (com.checkmate.core.Main.frame instanceof com.checkmate.ui.GameFrame) {
+                        // counter=1 (Odd) -> Next is Black.
+                        // counter=2 (Even) -> Next is White.
+                        // updateTurnLabel(isWhite)
+                        ((com.checkmate.ui.GameFrame) com.checkmate.core.Main.frame)
+                                .updateTurnLabel(Move.counter % 2 == 0);
+                    }
+
+                    if (board.isGameOver(move)) {
+                        String winner = move.piece.isWhite ? com.checkmate.ui.GameFrame.p1NameText
+                                : com.checkmate.ui.GameFrame.p2NameText;
+                        new com.checkmate.ui.GameOver(winner);
+                        // Don't dispose main frame immediately so they see the board,
+                        // or dispose it? The GameOver screen has 'Play Again'.
+                        // Usually keep it visible behind or dispose.
+                        // GameOver constructor sets undocorated dialog.
+                        // Let's dispose it in GameOver 'Play Again' or 'Exit'.
+                    }
                 }
                 // If the move is invalid, return the piece to its original position
                 else {

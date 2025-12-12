@@ -2,6 +2,10 @@
  * The Move class represents a move made by a chess piece on the board.
  */
 
+package com.checkmate.core;
+
+import com.checkmate.pieces.*;
+
 public class Move {
     public static int counter = 0; // Count the total number of the moves in the game
 
